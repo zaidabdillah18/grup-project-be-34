@@ -14,18 +14,20 @@ function signUp(req, res){
             bcryptjs.genSalt(10, function(err, salt){
                 bcryptjs.hash(req.body.password, salt, function(err, hash){
                     const user = {
-                        name: req.body.name,
+                        nama: req.body.nama,
                         email:req.body.email,
-                        password: hash
+                        password: hash,
+                        posisi: req.body.posisi
                     }
                 
                     models.User.create(user).then(result => {
-                        res.status(201).json({
+                        res.status(200).json({
                             message: "User created successfully",
+                            data: user
                         });
                     }).catch(error => {
                         console.log(error);
-                        res.status(500).json({
+                        res.status(400).json({
                             message: "Something went wrong!",
                         });
                     });
@@ -52,7 +54,9 @@ function login(req, res){
                 if(result){
                    const token = jwt.sign({
                         email: user.email,
-                        user_id: user.id
+                        id_user: user.id,
+                        nama: user.nama,
+                        posisi: user.posisi
                     },'secret', { expiresIn: '1h' }, function(err, token){
                         res.status(200).json({
                             message: "Authentication successful!",
@@ -60,7 +64,7 @@ function login(req, res){
                         });
                     });
                 }else{
-                    res.status(401).json({
+                    res.status(400).json({
                         message: "Invalid credentials!",
                     });
                 }
