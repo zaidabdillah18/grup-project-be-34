@@ -30,13 +30,13 @@ async function homemitradetail(req, res) {
   const verified = jwt.verify(token, 'secret')
   if (verified.posisi === "mitra") {
     const id = req.params.id
-    if (!id) {
+   
       const ambil = await models.Program.findAll({
         include: [
           { model: models.DataMitra, as: 'DataMitras' }
         ],
         where: {
-          id_mitra: id
+          id: id
         }
       })
       res.status(200).json({
@@ -48,11 +48,6 @@ async function homemitradetail(req, res) {
         message: 'Failed show data'
       })
     }
-  } else {
-    res.status(500).json({
-      message: "Invalid credentials!",
-    });
-  }
 }
 async function edithomemitra(req, res) {
   const auth = await req.headers.authorization
@@ -60,13 +55,13 @@ async function edithomemitra(req, res) {
   const verified = jwt.verify(token, 'secret')
 
   if (verified.posisi === "mitra") {
-    const by = req.params.id
+    const id = req.params.id
       const edit = await models.Program.update({     
         nama: req.body.nama,
       }, 
       {
         where: {
-          id: by
+          id: id
         }
       });
       res.status(200).json({
