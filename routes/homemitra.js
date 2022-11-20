@@ -1,11 +1,16 @@
 const express = require('express');
+const router = express.Router();
 const multer = require("multer");
 const path = require('path')
-const router = express.Router();
 //ini menuju ke controller
-const datapenyandangController = require('../controllers/datapenyandang.controller');
-const datamitraController = require('../controllers/datamitra.controller');
-//nambah data penyandang
+const homemitraController = require('../controllers/homemitra.controller');
+
+router.get("/lihat", homemitraController.homemitra);
+router.get("/lihat/detail/:id", homemitraController.homemitradetail);
+// router.get("/lihat/detail/edit/:id", homemitraController.edithomemitra);
+router.put("/lihat/edit/:id", homemitraController.edithomemitra);
+router.delete("/delete/:id", homemitraController.deletehomemitra);
+// router.get("/tambahprogram", homemitraController.tambahprogram);
 const fileStroge = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, 'public/images');
@@ -25,11 +30,5 @@ const fileStroge = multer.diskStorage({
     storage:fileStroge,
     fileFilter: fileFilter
   })
-router.post("/datapribadi", datapenyandangController.createDatapribadi);
-router.post("/datapribadi/kontakpribadi/:id", datapenyandangController.createkontakpribadi);
-router.post("/datapribadi/kontakpribadi/upload_berkas/:id", upload.single('file_ktp') ,datapenyandangController.creatuploadberkas);
-
-//login
-// router.post("/lihat", datapenyandangController.lihat)
-
+router.post("/tambahprogram/:id",upload.single('gambar'),homemitraController.kirimprogram);
 module.exports = router;

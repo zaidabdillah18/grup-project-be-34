@@ -19,7 +19,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       id_datapenyandang: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references:{
+          model:'DataPenyandangs',
+          key:'id'
+        }
       },
       createdAt: {
         allowNull: false,

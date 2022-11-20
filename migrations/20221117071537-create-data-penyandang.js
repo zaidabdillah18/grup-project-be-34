@@ -27,9 +27,13 @@ module.exports = {
       nik: {
         type: Sequelize.INTEGER
       },
-      
       id_user: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references:{
+          model:'Users',
+          key:'id'
+        }
       },
       createdAt: {
         allowNull: false,

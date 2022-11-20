@@ -52,17 +52,18 @@ async function createkontakpribadi (req,res){
   }
 }
 async function creatuploadberkas(req,res){
+ 
   const auth = await req.headers.authorization
   const token = await auth.split(' ')[1]
 
   const verified = jwt.verify(token, 'secret')
   if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
+  
   const id = req.params.id
   const idpenyandang = await models.DataPenyandang.findByPk(id); 
-  const image = req.file.path
-  console.log(image)
+
   const temp = await models.UploadBerkas.create({
-    file_ktp: image,
+    file_ktp: req.file.filename,
     id_datapenyandang: idpenyandang.id
   })
   res.json({

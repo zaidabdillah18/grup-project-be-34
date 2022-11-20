@@ -2,41 +2,21 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('KontakPribadis', {
+    await queryInterface.createTable('KategoriPrograms', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      no_hp: {
+      nama: {
         type: Sequelize.STRING
       },
-      alamat: {
+      deskripsi: {
         type: Sequelize.STRING
       },
-      provinsi: {
+      gambar: {
         type: Sequelize.STRING
-      },
-      kota: {
-        type: Sequelize.STRING
-      },
-      kecamatan: {
-        type: Sequelize.STRING
-      },
-      desa: {
-        type: Sequelize.STRING
-      },
-      kode_pos: {
-        type: Sequelize.STRING
-      },
-      id_datapenyandang: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references:{
-          model:'DataPenyandangs',
-          key:'id'
-        }
       },
       createdAt: {
         allowNull: false,
@@ -49,6 +29,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('KontakPribadis');
+    await queryInterface.dropTable('KategoriPrograms');
   }
 };
