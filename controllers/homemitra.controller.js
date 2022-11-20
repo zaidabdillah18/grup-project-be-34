@@ -44,9 +44,9 @@ async function homemitradetail(req, res) {
         data: ambil
       })
     } else {
-      res.status(400).json({
-        message: 'Failed show data'
-      })
+      res.status(500).json({
+        message: "Invalid credentials!",
+      });
     }
 }
 async function edithomemitra(req, res) {
@@ -57,7 +57,7 @@ async function edithomemitra(req, res) {
   if (verified.posisi === "mitra") {
     const id = req.params.id
       const edit = await models.Program.update({     
-        nama: req.body.nama,
+        nama: req.body.nama
       }, 
       {
         where: {
