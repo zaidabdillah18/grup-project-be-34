@@ -9,7 +9,7 @@ router.get("/lihat", homemitraController.homemitra);
 router.get("/lihat/detail/:id", homemitraController.homemitradetail);
 // router.get("/lihat/detail/edit/:id", homemitraController.edithomemitra);
 router.put("/lihat/edit/:id", homemitraController.edithomemitra);
-router.delete("/delete/:id", homemitraController.deletehomemitra);
+router.delete("/lihat/delete/:id", homemitraController.deletehomemitra);
 // router.get("/tambahprogram", homemitraController.tambahprogram);
 const fileStroge = multer.diskStorage({
     destination: (req, file, cb) => {
