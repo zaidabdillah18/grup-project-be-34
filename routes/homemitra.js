@@ -8,7 +8,7 @@ const homemitraController = require('../controllers/homemitra.controller');
 router.get("/lihat", homemitraController.homemitra);
 router.get("/lihat/detail/:id", homemitraController.homemitradetail);
 // router.get("/lihat/detail/edit/:id", homemitraController.edithomemitra);
-router.put("/lihat/edit/:id", homemitraController.edithomemitra);
+router.put("/lihat/:id", homemitraController.edithomemitra);
 router.delete("/lihat/delete/:id", homemitraController.deletehomemitra);
 // router.get("/tambahprogram", homemitraController.tambahprogram);
 const fileStroge = multer.diskStorage({
@@ -30,5 +30,5 @@ const fileStroge = multer.diskStorage({
     storage:fileStroge,
     fileFilter: fileFilter
   })
-router.post("/tambahprogram/:id",upload.single('gambar'),homemitraController.kirimprogram);
+router.post("/tambahprogram",upload.single('gambar'),homemitraController.kirimprogram);
 module.exports = router;

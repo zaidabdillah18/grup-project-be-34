@@ -27,6 +27,9 @@ module.exports = {
       kode_kegiatan: {
         type: Sequelize.STRING
       },
+      status_program: {
+        type: Sequelize.STRING
+      },
       gambar: {
         type: Sequelize.STRING
       },
@@ -39,7 +42,7 @@ module.exports = {
         } 
       },
       id_kategori: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

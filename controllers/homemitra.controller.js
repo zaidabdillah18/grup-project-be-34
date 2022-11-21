@@ -8,8 +8,12 @@ async function homemitra(req, res) {
   if (verified.posisi === "mitra") {
     const ambil = await models.Program.findAll({
       include: [
-        { model: models.KategoriProgram, as: 'KategoriPrograms' }
+        { 
+          model: models.KategoriProgram, as: 'KategoriPrograms',
+          attributes: ['id','nama','gambar']
+      }
       ],
+      attributes: ['id','nama','gambar'],
       where: {
         id_mitra: verified.id_user
       }
@@ -33,8 +37,12 @@ async function homemitradetail(req, res) {
    
       const ambil = await models.Program.findAll({
         include: [
-          { model: models.DataMitra, as: 'DataMitras' }
+          { 
+            model: models.DataMitra, as: 'DataMitras',
+            attributes: ['id','nama_mitra','nama_perusahaan','bidang','jumlah_anggota','alamat'],
+         }
         ],
+        attributes: ['id','nama','deskripsi','tanggal_mulai','tanggal_selesai','informasi_tambahan','kode_kegiatan','gambar'],
         where: {
           id: id
         }
@@ -56,7 +64,7 @@ async function edithomemitra(req, res) {
 
   if (verified.posisi === "mitra") {
     const id = req.params.id
-      const edit = await models.Program.update({     
+      await models.Program.update({     
         nama: req.body.nama
       }, 
       {
@@ -64,9 +72,12 @@ async function edithomemitra(req, res) {
           id: id
         }
       });
+
+      const program = await models.Program.findByPk(id)
+
       res.status(200).json({
         message: 'Success update data',
-        data: edit
+        data: program
       })
     }
     else {
@@ -83,19 +94,19 @@ async function deletehomemitra(req,res){
  
   if (verified.posisi === "mitra") {
     const id = req.params.id
-    console.log(id)
     // check id in table todolist
     // let hapus = await models.Program.findByPk(id)
     // proses delete data
-    const hapus1 = await models.Program.destroy({
+    await models.Program.destroy({
       where: {
         id: id
       }
     })
+    const hapus = await models.Program.findByPk(id)
     res.json({
       status: 200,
       message: 'Success delete data',
-      data: hapus1
+      data: hapus
     })
   }
 }
@@ -105,10 +116,10 @@ async function kirimprogram(req, res) {
 
   const verified = jwt.verify(token, 'secret')
   const id = req.params.id
-  const idmitra = await models.DataMitra.findByPk(id);
+  // const idmitra = await models.DataMitra.findByPk(id);
 
   if (verified.posisi === "mitra") {
-    const project = await models.KategoriProgram.findOne({ where: { nama: 'bansos' } });
+    // const project = await models.KategoriProgram.findOne({ where: { nama: 'bansos' } });
     const tampung = await models.Program.create({
       nama: req.body.nama,
       deskripsi: req.body.deskripsi,
@@ -117,9 +128,10 @@ async function kirimprogram(req, res) {
       kriteria: req.body.kriteria,
       informasi_tambahan: req.body.informasi_tambahan,
       kode_kegiatan: req.body.kode_kegiatan,
+      status_program: req.body.status_program,
       gambar: req.file.filename,
-      id_kategori: project.id,
-      id_mitra: idmitra.id
+      id_kategori: req.body.id_kategori,
+      id_mitra: verified.id_user
     })
     res.status(200).json({
       message: 'Success create data',
