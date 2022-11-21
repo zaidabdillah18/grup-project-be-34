@@ -1,6 +1,6 @@
 const express = require("express");
 var app = express(),bodyParser = require('body-parser');
-
+const port = 5000;
 const UserRouter = require('./routes/user')
 const datapenyandangRouter = require('./routes/datapenyandang')
 const datamitraRouter = require('./routes/datamitra')
@@ -15,6 +15,6 @@ app.use("/daftarpenyandang",datapenyandangRouter);
 app.use("/daftarmitra",datamitraRouter);
 app.use("/homemitra",homemitraRouter);
 app.use("/programmitra",programmitraRouter);
-app.listen(5000, function () {
-console.log("Started application on port %d", 5000);
-});
+app.listen(process.env.PORT || port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })
