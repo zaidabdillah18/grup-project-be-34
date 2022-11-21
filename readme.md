@@ -5,7 +5,7 @@ Register [baseURL/auth/register](https://grup-project-be-34-production.up.railwa
 
 Login [baseURL/auth/login](https://grup-project-be-34-production.up.railway.app/user/login/)
 
-profile
+profile penyandang disabilitas
 
 POST profile datapribadi https://grup-project-be-34-production.up.railway.app/profile/datapribadi/
 
