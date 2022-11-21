@@ -15,7 +15,7 @@ POST profile uploadberkas https://grup-project-be-34-production.up.railway.app/p
 
 ## Home Mitra ##
 
-POST profile mitra https://grup-project-be-34-production.up.railway.app/daftarmitra/datamitra/
+POST profile mitra https://grup-project-be-34-production.up.railway.app/profile/datamitra/
 
 POST home daftar program mitra https://grup-project-be-34-production.up.railway.app/homemitra/tambahprogram/
 
