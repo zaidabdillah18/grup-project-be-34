@@ -1,11 +1,11 @@
-Dokumentasi REST API
-Auth
+## Dokumentasi REST API ##
+## Auth ##
 
 Register [baseURL/auth/register](https://grup-project-be-34-production.up.railway.app/user/signup/)
 
 Login [baseURL/auth/login](https://grup-project-be-34-production.up.railway.app/user/login/)
 
-profile penyandang disabilitas
+## profile penyandang disabilitas ##
 
 POST profile datapribadi https://grup-project-be-34-production.up.railway.app/profile/datapribadi/
 
@@ -13,7 +13,7 @@ POST profile Kontakpribadi https://grup-project-be-34-production.up.railway.app/
 
 POST profile uploadberkas https://grup-project-be-34-production.up.railway.app/profile/datapribadi/kontakpribadi/upload_berkas/1/
 
-Home Mitra
+## Home Mitra ##
 
 POST profile mitra https://grup-project-be-34-production.up.railway.app/daftarmitra/datamitra/
 
