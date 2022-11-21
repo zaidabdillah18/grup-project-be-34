@@ -1,9 +1,9 @@
 ## Dokumentasi REST API ##
 ## Auth ##
 
-Register [baseURL/auth/register](https://grup-project-be-34-production.up.railway.app/user/signup/)
+POST Register [baseURL/auth/register](https://grup-project-be-34-production.up.railway.app/user/signup/)
 
-Login [baseURL/auth/login](https://grup-project-be-34-production.up.railway.app/user/login/)
+POST Login [baseURL/auth/login](https://grup-project-be-34-production.up.railway.app/user/login/)
 
 ## Profile Penyandang Disabilitas ##
 
