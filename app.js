@@ -11,8 +11,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/user",UserRouter);
-app.use("/daftarpenyandang",datapenyandangRouter);
-app.use("/daftarmitra",datamitraRouter);
+app.use("/profile",datapenyandangRouter);
+app.use("/profile",datamitraRouter);
 app.use("/homemitra",homemitraRouter);
 app.use("/programmitra",programmitraRouter);
 app.listen(process.env.PORT || port, () => {
