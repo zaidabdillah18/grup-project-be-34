@@ -12,25 +12,21 @@ async function homepenyandang(req,res){
             attributes: ['id','nama','deskripsi','gambar'],
             include:[{
                 models:DataProgram,
-            },
-            {
-                include:[{
-                    models:DataMitra
-                }]
-            }
-        ]
+                include: [DataMitra]
+                }
+            ]
           })
-          const homeprogrampenyandang = await models.Program.findAll({
-             include:[{
-                model: models.DataMitra, as: 'DataMitras',
-                attributes: ['id','nama_mitra']
-            }],
-            attributes: ['id','nama','deskripsi','gambar','status_program']
-          }) 
+        //   const homeprogrampenyandang = await models.Program.findAll({
+        //      include:[{
+        //         model: models.DataMitra, as: 'DataMitras',
+        //         attributes: ['id','nama_mitra']
+        //     }],
+        //     attributes: ['id','nama','deskripsi','gambar','status_program']
+        //   }) 
         
           res.status(200).json({
             message: 'Success show data',
-            program: homeprogrampenyandang,
+            // program: homeprogrampenyandang,
             kategori: homekategoripenyandang
           })
     }else{
