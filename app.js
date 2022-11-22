@@ -7,6 +7,7 @@ const datamitraRouter = require('./routes/datamitra')
 const homemitraRouter = require('./routes/homemitra')
 const programmitraRouter = require('./routes/programmitra')
 const homepenyandangRouter = require('./routes/homepenyandang')
+const programpenyandangRouter = require('./routes/programpenyandang')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,6 +18,7 @@ app.use("/profile",datamitraRouter);
 app.use("/homemitra",homemitraRouter);
 app.use("/programmitra",programmitraRouter);
 app.use("/homepenyandang",homepenyandangRouter);
+app.use("/programpenyandang",programpenyandangRouter);
 
 
 app.listen(process.env.PORT || port, () => {
