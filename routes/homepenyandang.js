@@ -6,6 +6,8 @@ const path = require('path')
 const homepenyandangController = require('../controllers/homepenyandang.controller');
 
 router.get("/lihat", homepenyandangController.homepenyandang);
+router.get("/lihat", homepenyandangController.homepeprogramnyandag);
+
 // router.get("/lihat/:id", programmitraController.detailprogrammitra);
 
 module.exports = router;

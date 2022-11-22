@@ -22,7 +22,7 @@ async function homepenyandang(req,res){
           });
     }    
 }
-async function homepenyandang(req,res){
+async function homepeprogramnyandag(req,res){
     const auth = await req.headers.authorization
     const token = await auth.split(' ')[1]
   
@@ -48,5 +48,6 @@ async function homepenyandang(req,res){
     }    
 }
 module.exports = {
-    homepenyandang:homepenyandang    
+    homepenyandang:homepenyandang,
+    homepeprogramnyandag:homepeprogramnyandag    
 }
