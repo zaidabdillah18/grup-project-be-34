@@ -21,21 +21,19 @@ async function homepenyandang(req,res){
             // }],
             attributes: ['id','nama','deskripsi','gambar'],
           })
-          const home = await models.Program.findAll(homepenyandang,{
+          const home = await models.Program.findAll({
              include:[{
                 model: models.DataMitra, as: 'DataMitras',
                 attributes: ['id','nama_mitra']
             }],
             attributes: ['id','nama','deskripsi','gambar','status_program']
           }) 
-        //   res.status(200).json({
-        //     message: 'Success show data',
-        //     data: homepenyandang
-        //   })
           res.status(200).json({
             message: 'Success show data',
-            data: home
+            data: homepenyandang,
+            data:home,
           })
+       
     }else{
         res.status(500).json({
             message: "Invalid credentials!",
