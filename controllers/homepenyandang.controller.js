@@ -10,6 +10,15 @@ async function homepenyandang(req,res){
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
         const homekategoripenyandang = await models.KategoriProgram.findAll({
             attributes: ['id','nama','deskripsi','gambar'],
+            include:[{
+                models:DataProgram,
+            },
+            {
+                include:[{
+                    models:DataMitra
+                }]
+            }
+        ]
           })
           const homeprogrampenyandang = await models.Program.findAll({
              include:[{
