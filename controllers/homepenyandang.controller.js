@@ -13,14 +13,14 @@ async function homepenyandang(req,res){
             include: [
               { 
                 model: models.Program, as: 'Programs',
-                attributes: ['id','nama','deskripsi']
+                attributes: ['id','nama','deskripsi','gambar','status_program']
             }
             ],
             // include:[{
             //     model: models.DataMitra, as: 'DataMitras',
             //     attributes: ['id','nama_mitra']
             // }],
-            attributes: ['id','nama','deskripsi','gambar','status_program'],
+            attributes: ['id','nama','deskripsi','gambar'],
           })
           res.status(200).json({
             message: 'Success show data',
