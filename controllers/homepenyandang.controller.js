@@ -16,10 +16,10 @@ async function homepenyandang(req,res){
                 attributes: ['id','nama','deskripsi']
             }
             ],
-            include:[{
-                model: models.DataMitra, as: 'DataMitras',
-                attributes: ['id','nama_mitra']
-            }],
+            // include:[{
+            //     model: models.DataMitra, as: 'DataMitras',
+            //     attributes: ['id','nama_mitra']
+            // }],
             attributes: ['id','nama','deskripsi','gambar','status_program'],
           })
           res.status(200).json({
