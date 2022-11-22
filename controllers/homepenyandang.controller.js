@@ -21,17 +21,17 @@ async function homepenyandang(req,res){
             // }],
             attributes: ['id','nama','deskripsi','gambar'],
           })
-          const home = await models.Program.findAll({
+          const home = await models.Program.findAll(homepenyandang,{
              include:[{
                 model: models.DataMitra, as: 'DataMitras',
                 attributes: ['id','nama_mitra']
             }],
             attributes: ['id','nama','deskripsi','gambar','status_program']
           }) 
-          res.status(200).json({
-            message: 'Success show data',
-            data: homepenyandang
-          })
+        //   res.status(200).json({
+        //     message: 'Success show data',
+        //     data: homepenyandang
+        //   })
           res.status(200).json({
             message: 'Success show data',
             data: home
