@@ -11,9 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.belongsTo(models.User, {foreignKey: 'id_user'})
-      DataMitra.hasMany(models.Program, {
-        foreignKey: "id_mitra",
-      });
+      this.hasMany(models.Program, {foreignKey: 'id_mitra'})
+      // DataMitra.hasMany(models.Program, {
+      //   foreignKey: "id_mitra",
+      // });
     }
   }
   DataMitra.init({

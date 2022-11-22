@@ -11,8 +11,8 @@ async function homepenyandang(req,res){
         const homekategoripenyandang = await models.KategoriProgram.findAll({
             attributes: ['id','nama','deskripsi','gambar'],
             include:[{
-                model: models.Programs,
-                include: [models.DataMitras]
+                model: models.Program,
+                include: [models.DataMitra]
                 }
             ]
           })

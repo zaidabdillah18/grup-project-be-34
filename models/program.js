@@ -11,14 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Program.belongsTo(models.DataMitra, {
-        as:'DataMitras',
-        foreignKey: "id_mitra",
-      });
-      Program.belongsTo(models.KategoriProgram, {
-        as:'KategoriPrograms',
-        foreignKey: "id_kategori",
-      });
+      this.belongsTo(models.DataMitra, {foreignKey: 'id_mitra'})
+      this.belongsTo(models.KategoriProgram, {foreignKey: 'id_kategori'})
+      // Program.belongsTo(models.DataMitra, {
+      //   as:'DataMitras',
+      //   foreignKey: "id_mitra",
+      // });
+      // Program.belongsTo(models.KategoriProgram, {
+      //   as:'KategoriPrograms',
+      //   foreignKey: "id_kategori",
+      // });
     }
   }
   Program.init({
