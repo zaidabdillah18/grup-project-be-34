@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer')
  exports.kirimEmail = dataEmail =>{
     let transporter = nodemailer.createTransport({
-        host: "smtp.gmail.email",
+        host: "smtp.gmail.com",
         port: 587,
         secure: false,
         requireTLS:true, // true for 465, false for other ports
