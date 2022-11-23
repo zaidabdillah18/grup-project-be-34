@@ -112,7 +112,7 @@ async function forgotpassword (req, res) {
       { resetpasswordLink: token },
       {
         where: {
-          id_user: user.id
+          id: user.id
         }
       }
     )
