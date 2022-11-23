@@ -1,7 +1,7 @@
 const models = require('../models')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-
+const {kirimEmail} = require('../helpers')
 function signUp (req, res) {
   //Sign up
   models.User.findOne({ where: { email: req.body.email } })
@@ -116,6 +116,13 @@ async function forgotpassword (req, res) {
         }
       }
     )
+    const templateEmail = {
+        from:'help-desk',
+        to: email,
+        subject: 'Reset Password:',
+        html: `<h6>Silahkan klik link di bawah ini untuk reset password anda</h6><p>${process.env.CLIENT_URL}/resetpassword/${token}</p>`   
+    }
+    kirimEmail(templateEmail)
     res.status(200).json({
       message: 'berhasil dikirim'
     })
