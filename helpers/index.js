@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer')
         requireTLS:true, // true for 465, false for other ports
         auth: {
           user: 'zaidabdillah18@gmail.com', // generated ethereal user
-          pass: 'Suho2000', // generated ethereal password
+          pass: 'gwdfazgoauowlfmi', // generated ethereal password
         },
       });
       return (
