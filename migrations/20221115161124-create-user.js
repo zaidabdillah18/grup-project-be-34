@@ -21,6 +21,9 @@ module.exports = {
       posisi: {
         type: Sequelize.STRING
       },
+      resetpasswordLink: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
