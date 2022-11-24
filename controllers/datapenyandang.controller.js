@@ -31,7 +31,7 @@ async function getDataPribadi(req,res){
   const token = await auth.split(' ')[1]
   const verified = jwt.verify(token, 'secret')
   if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
-    const nama = req.params
+    const nama = req.params.nama
     const penyandang = await models.DataPenyandang.findOne({nama:nama})
     console.log(penyandang.id)
     if(penyandang){
