@@ -29,6 +29,20 @@ async function createDatapribadi (req, res) {
 async function getDataPribadi(req,res){
 
 }
+async function editDataPribadi(req,res){
+  const {nama} = req.body
+  const penyandang = await models.DataPenyandang.findOne({nama:nama})
+  if(penyandang){
+    await models.User.update({nama:req.body.nama},{
+      where:{
+        id:penyandang.id
+      }
+    })
+    res.status(200).json({
+      message:'berhasil di update'
+    })
+  }
+}
 async function createkontakpribadi (req,res){
   const auth = await req.headers.authorization
   const token = await auth.split(' ')[1]
@@ -215,7 +229,8 @@ module.exports = {
   createDatapribadi: createDatapribadi,
   createkontakpribadi:createkontakpribadi,
   creatuploadberkas:creatuploadberkas,
-  getDataPribadi:getDataPribadi
+  getDataPribadi:getDataPribadi,
+  editDataPribadi:editDataPribadi
 //   getDataPenyandang: getDataPenyandang,
 //   getTODObyid: getTODObyid,
 //   editTODO: editTODO,
