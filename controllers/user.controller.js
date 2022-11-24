@@ -147,6 +147,13 @@ async function forgotpassword (req, res) {
   //       })
   // }
 }
+async function lihatresetpassword(req,res){
+  const user = await models.User.findOne({resetpasswordLink:token})
+  res.status(200).json({
+    message:'success',
+    data: user
+  })
+}
 async function resetPassword (req,res){
   const {token,password} = req.body
   const user = await models.User.findOne({resetpasswordLink:token})
@@ -167,4 +174,5 @@ module.exports = {
   login: login,
   forgotpassword: forgotpassword,
   resetPassword:resetPassword,
+  lihatresetpassword:lihatresetpassword,
 }
