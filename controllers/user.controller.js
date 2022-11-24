@@ -159,7 +159,6 @@ async function resetPassword (req,res){
     })
     res.status(200).json({
       message:'berhasil di update',
-      data: tampung
     })
   }
 }
