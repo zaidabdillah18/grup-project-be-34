@@ -120,7 +120,7 @@ async function forgotpassword (req, res) {
         from:'help-desk',
         to: email,
         subject: 'Reset Password:',
-        html: `<p>Silahkan klik link di bawah ini untuk reset password anda</p><p>${process.env.CLIENT_URL}/resetpassword/${token}</p>`   
+        html: `<p>Silahkan klik link di bawah ini untuk reset password anda</p><p>${process.env.CLIENT_URL}/user/resetpassword/${token}</p>`   
     }
     kirimEmail(templateEmail)
     res.status(200).json({
