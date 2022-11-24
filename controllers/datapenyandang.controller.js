@@ -55,7 +55,7 @@ async function editDataPribadi(req,res){
   const {nama} = req.params
   const penyandang = await models.DataPenyandang.findOne({nama:nama})
   if(penyandang){
-    await models.User.update({nama:req.body.nama},{
+    await models.DataPenyandang.update({nama:req.body.nama},{
       where:{
         id:penyandang.id
       }
