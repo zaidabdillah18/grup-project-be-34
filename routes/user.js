@@ -8,5 +8,5 @@ router.post("/signup", userController.signUp);
 router.post("/login", userController.login)
 
 router.put('/forgotpassword', userController.forgotpassword)
-router.put('/resetpassword', userController.resetPassword)
+router.put('/resetpassword/:token', userController.resetPassword)
 module.exports = router;
