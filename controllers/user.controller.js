@@ -148,6 +148,7 @@ async function forgotpassword (req, res) {
   // }
 }
 async function lihatresetpassword(req,res){
+  const {token} = req.params
   const user = await models.User.findOne({resetpasswordLink:token})
   res.status(200).json({
     message:'success',
