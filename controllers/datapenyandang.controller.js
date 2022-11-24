@@ -26,6 +26,9 @@ async function createDatapribadi (req, res) {
     })
 }
 }
+async function getDataPribadi(req,res){
+
+}
 async function createkontakpribadi (req,res){
   const auth = await req.headers.authorization
   const token = await auth.split(' ')[1]
@@ -211,7 +214,8 @@ async function creatuploadberkas(req,res){
 module.exports = {
   createDatapribadi: createDatapribadi,
   createkontakpribadi:createkontakpribadi,
-  creatuploadberkas:creatuploadberkas
+  creatuploadberkas:creatuploadberkas,
+  getDataPribadi:getDataPribadi
 //   getDataPenyandang: getDataPenyandang,
 //   getTODObyid: getTODObyid,
 //   editTODO: editTODO,
