@@ -152,13 +152,13 @@ async function resetPassword (req,res){
   const user = await models.User.findOne({resetpasswordLink:token})
   if(user){
     const hashPassword = await bcryptjs.hash(password,10)
-    const tampung = await models.User.update({password:hashPassword},{
+    await models.User.update({password:hashPassword},{
       where:{
         id:user.id
       }
     })
     res.status(200).json({
-      message:'berhasil di update',
+      message:'berhasil di update'
     })
   }
 }
