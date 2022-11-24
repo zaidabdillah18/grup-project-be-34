@@ -33,6 +33,7 @@ async function getDataPribadi(req,res){
   if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
     const {nama} = req.params
     const penyandang = await models.DataPenyandang.findOne({nama:nama})
+    console.log(penyandang.id)
     if(penyandang){
     const ambil = await models.DataPenyandang.findAll({
       where: {
