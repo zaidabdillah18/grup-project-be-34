@@ -16,13 +16,18 @@ async function getallpenyandang(req, res) {
       const ambil = await models.DataPenyandang.findAll({
         include: [
           {
-            model: models.Program,
+            model: models.KontakPribadi,
             include: [models.UploadBerkas]
           }
         ],
         where: {
           id: verified.id_user
         }
+      })
+      res.json({
+        status: 200,
+        message: 'Success create data',
+        data: ambil
       })
     }
   // }
