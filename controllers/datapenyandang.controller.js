@@ -11,7 +11,7 @@ async function getallpenyandang(req, res) {
   if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
     const nama = req.params.nama
     const penyandang = await models.DataPenyandang.findOne({nama:nama})
-    console.log(penyandang.id)
+    console.log(penyandang.id_user)
     if (penyandang) {
       const ambil = await models.DataPenyandang.findAll({
         include: [
@@ -21,7 +21,7 @@ async function getallpenyandang(req, res) {
           }
         ],
         where: {
-          id: penyandang.id
+          id_user: penyandang.id_user
         }
       })
       res.json({
