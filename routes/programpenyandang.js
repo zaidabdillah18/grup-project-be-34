@@ -6,7 +6,8 @@ const path = require('path')
 const programpenyandangController = require('../controllers/programpenyandang.controller');
 
 router.get("/lihat", programpenyandangController.programkategoripenyandang);
-router.get("/lihat/:id", programpenyandangController.detailprogramkategori);
+router.get("/lihat/:id", programpenyandangController.detailprogram);
+router.get("/lihat/detail/:id", programpenyandangController.detailprogram);
 // router.get("/lihat/:id", programpenyandangController.detailprogrammitra);
 
 module.exports = router;

@@ -29,7 +29,7 @@ async function detailprogramkategori(req,res){
  
   if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
     const id = req.params.id 
-    const detailprogramkategoripenyandang = await models.KategoriProgram.findAll({ 
+    const detailprogramkategori = await models.KategoriProgram.findAll({ 
       attributes: ['id','nama','deskripsi','gambar'],
       include:[{
           model: models.Program,
@@ -43,11 +43,36 @@ async function detailprogramkategori(req,res){
       res.status(200).json({
         message: 'Success show data',
         // program: homeprogrampenyandang,
-        kategori: detailprogramkategoripenyandang
+        kategori: detailprogramkategori
+      })
+    }
+}
+async function detailprogram(req,res){
+  const auth = await req.headers.authorization
+  const token = await auth.split(' ')[1]
+
+  const verified = jwt.verify(token, 'secret') 
+ 
+  if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
+    const id = req.params.id 
+    const detailprogram = await models.Program.findAll({ 
+      include:[{
+          model: models.DataMitra
+          }
+      ],
+      where:{
+      id:id
+    }
+      })
+      res.status(200).json({
+        message: 'Success show data',
+        // program: homeprogrampenyandang,
+        kategori: detailprogram
       })
     }
 }
 module.exports = {
 programkategoripenyandang:programkategoripenyandang,
-detailprogramkategori:detailprogramkategori
+detailprogramkategori:detailprogramkategori,
+detailprogram:detailprogram
   }
