@@ -53,7 +53,7 @@ async function getallpenyandang(req, res) {
     const token = await auth.split(' ')[1]
     const verified = jwt.verify(token, 'secret')
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
-      const id = verified.id
+      const id = req.params.id
       const ambil = await models.DataPenyandang.findByPk(id)
       // const nama = req.params.nama
       // const penyandang = await models.DataPenyandang.findOne({ nama: nama })
@@ -76,12 +76,14 @@ async function getallpenyandang(req, res) {
     const token = await auth.split(' ')[1]
     const verified = jwt.verify(token, 'secret')
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
-      const nama = req.params.nama
-      const penyandang = await models.DataPenyandang.findOne({ nama: nama })
-      if (penyandang) {
+      const id = req.params.id
+      const ambil = await models.DataPenyandang.findByPk(id)
+      // const nama = req.params.nama
+    //   const penyandang = await models.DataPenyandang.findOne({ nama: nama })
+      if (ambil) {
         await models.DataPenyandang.update({ nama: req.body.nama }, {
           where: {
-            id: penyandang.id
+            id: ambil.id
           }
         })
         res.status(200).json({
