@@ -25,6 +25,7 @@ const fileStroge = multer.diskStorage({
     storage:fileStroge,
     fileFilter: fileFilter
   })
+router.get("/allpenyandang", datapenyandangController.getallpenyandang)
 router.post("/datapribadi", datapenyandangController.createDatapribadi);
 router.get("/datapribadi", datapenyandangController.getDataPribadi);
 router.put("/datapribadi", datapenyandangController.editDataPribadi);
