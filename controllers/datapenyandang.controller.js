@@ -9,10 +9,10 @@ async function getallpenyandang(req, res) {
   const token = await auth.split(' ')[1]
   const verified = jwt.verify(token, 'secret')
   if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
-    // const nama = req.params.nama
-    // const penyandang = await models.DataPenyandang.findOne({nama:nama})
-    // console.log(penyandang.id)
-    // if (penyandang) {
+    const nama = req.params.nama
+    const penyandang = await models.DataPenyandang.findOne({nama:nama})
+    console.log(penyandang.id)
+    if (penyandang) {
       const ambil = await models.DataPenyandang.findAll({
         include: [
           {
@@ -21,7 +21,7 @@ async function getallpenyandang(req, res) {
           }
         ],
         where: {
-          id_user: verified.id_user
+          id: penyandang.id
         }
       })
       res.json({
@@ -30,7 +30,7 @@ async function getallpenyandang(req, res) {
         data: ambil
       })
     }
-  // }
+  }
 }
   async function createDatapribadi(req, res) {
     const auth = await req.headers.authorization
