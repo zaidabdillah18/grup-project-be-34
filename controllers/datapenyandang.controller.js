@@ -12,7 +12,7 @@ async function getallpenyandang(req, res) {
     // const nama = req.params.nama
     // const penyandang = await models.DataPenyandang.findOne({nama:nama})
     // console.log(penyandang.id)
-    if (penyandang) {
+    // if (penyandang) {
       const ambil = await models.DataPenyandang.findAll({
         include: [
           {
@@ -25,7 +25,7 @@ async function getallpenyandang(req, res) {
         }
       })
     }
-  }
+  // }
 }
   async function createDatapribadi(req, res) {
     const auth = await req.headers.authorization
