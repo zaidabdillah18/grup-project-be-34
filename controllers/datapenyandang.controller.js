@@ -21,7 +21,7 @@ async function getallpenyandang(req, res) {
           }
         ],
         where: {
-          id: verified.id_user
+          id_user: verified.id_user
         }
       })
       res.json({
