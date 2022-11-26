@@ -59,7 +59,7 @@ async function getallpenyandang(req, res) {
       // if (penyandang) {
         const ambil = await models.DataPenyandang.findAll({
           where: {
-            id: verified.id
+            id: verified.id_user
           }
         })
         res.status(200).json({
