@@ -35,11 +35,11 @@ module.exports = {
       },
       id_mitra: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references:{
-         model:'DataMitras',
-          key:'id'
-        } 
+        // allowNull: false,
+        // references:{
+        //  model:'DataMitras',
+        //   key:'id'
+        // } 
       },
       id_kategori: {
         type: Sequelize.INTEGER,
