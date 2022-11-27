@@ -80,14 +80,15 @@ async function daftarprogram(req,res){
  
   if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
     // const id = req.params.id 
-    const tampung =  await models.Program.findByPk(verified.id_user)
-    const temp =  await models.DataPenyandang.findByPk(verified.id_user)
+    // const tampung =  await models.Program.findByPk(verified.id_user)
+    // const temp =  await models.DataPenyandang.findByPk(verified.id_user)
     const daftarprogram = await models.pilihprogram.create({ 
-      id_program: tampung.id,
-      id_datapenyandang: temp.id,
+      id_program: req.body.id_program,
+      id_datapenyandang: verified.id_user,
       status: "daftar"
+
     })
-    res.status(200).json({
+      res.status(200).json({
       message: 'Success create data',
       data: daftarprogram
     })
