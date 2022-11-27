@@ -8,7 +8,7 @@ const programpenyandangController = require('../controllers/programpenyandang.co
 router.get("/lihat", programpenyandangController.programkategoripenyandang);
 router.get("/lihat/:id", programpenyandangController.detailprogramkategori);
 router.get("/lihat/detail/:id", programpenyandangController.detailprogram);
-router.get("/lihat/detail/daftar", programpenyandangController.daftarprogram);
+router.post("/lihat/detail/daftar", programpenyandangController.daftarprogram);
 // router.get("/lihat/:id", programpenyandangController.detailprogrammitra);
 
 module.exports = router;

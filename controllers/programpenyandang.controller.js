@@ -84,7 +84,7 @@ async function daftarprogram(req,res){
     // const temp =  await models.DataPenyandang.findByPk(verified.id_user)
     const daftarprogram = await models.pilihprogram.create({ 
       id_program: req.body.id_program,
-      id_datapenyandang: req.body.id_datapenyandang,
+      id_datapenyandang: verified.id_user,
       status: "daftar"
 
     })
