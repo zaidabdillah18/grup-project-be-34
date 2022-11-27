@@ -128,7 +128,7 @@ async function kirimprogram(req, res) {
       kriteria: req.body.kriteria,
       informasi_tambahan: req.body.informasi_tambahan,
       kode_kegiatan: req.body.kode_kegiatan,
-      status_program: req.body.status_program,
+      status_program: "dibuka",
       gambar: req.file.filename,
       id_kategori: req.body.id_kategori,
       id_mitra: verified.id_user
