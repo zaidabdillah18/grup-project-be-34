@@ -22,6 +22,7 @@ app.use("/homemitra",homemitraRouter);
 app.use("/programmitra",programmitraRouter);
 app.use("/homepenyandang",homepenyandangRouter);
 app.use("/programpenyandang",programpenyandangRouter);
+app.use("/kegiatanpenyandang",kegiatanpenyandangRouter);
 
 
 app.listen(process.env.PORT || port, () => {
