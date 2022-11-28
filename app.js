@@ -11,6 +11,7 @@ const homemitraRouter = require('./routes/homemitra')
 const programmitraRouter = require('./routes/programmitra')
 const homepenyandangRouter = require('./routes/homepenyandang')
 const programpenyandangRouter = require('./routes/programpenyandang')
+const kegiatanpenyandangRouter = require('./routes/kegiatanpenyandang')
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
