@@ -8,7 +8,7 @@ async function kegiatanpenyandang(req,res){
     const verified = jwt.verify(token, 'secret') 
    
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
-        const id = req.params.id 
+       
         const kegiatan = await models.pilihprogram.findAll({ 
           include:[{
               model: models.Program,
@@ -19,7 +19,7 @@ async function kegiatanpenyandang(req,res){
               }
           ],
           where:{
-          id:id,
+          id_datapenyandang:verified.id,
           status:"daftar"
         }
           })
