@@ -52,7 +52,7 @@ async function kegiatanaktifpenyandang(req,res){
         status:"diterima"
       }
         })
-        if(kegiatan != null){
+        if(kegiatan){
         res.status(200).json({
           message: 'Success show data',
           // program: homeprogrampenyandang,
