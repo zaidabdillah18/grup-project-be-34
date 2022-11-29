@@ -19,7 +19,7 @@ async function kegiatanpenyandang(req,res){
               }
           ],
           where:{
-          id_datapenyandang:verified.id,
+          id_datapenyandang:verified.id_user,
           status:"daftar"
         }
           })
