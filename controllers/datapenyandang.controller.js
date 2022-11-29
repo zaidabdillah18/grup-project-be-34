@@ -109,8 +109,8 @@ async function getallpenyandang(req, res) {
 
     const verified = jwt.verify(token, 'secret')
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
-      const id = req.params.id
-      const idpenyandang = await models.DataPenyandang.findByPk(id);
+      // const id = req.params.id
+      // const idpenyandang = await models.DataPenyandang.findByPk(id);
       const temp = await models.KontakPribadi.create({
         no_hp: req.body.no_hp,
         alamat: req.body.alamat,
@@ -118,8 +118,7 @@ async function getallpenyandang(req, res) {
         kota: req.body.kota,
         kecamatan: req.body.kecamatan,
         desa: req.body.desa,
-        kode_pos: req.body.kode_pos,
-        id_datapenyandang: idpenyandang.id
+        kode_pos: req.body.verified.id_user
       })
       res.json({
         status: 200,
