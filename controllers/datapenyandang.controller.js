@@ -179,12 +179,12 @@ async function getallpenyandang(req, res) {
     const verified = jwt.verify(token, 'secret')
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
 
-      const id = req.params.id
-      const idpenyandang = await models.DataPenyandang.findByPk(id);
+      // const id = req.params.id
+      // const idpenyandang = await models.DataPenyandang.findByPk(id);
 
       const temp = await models.UploadBerkas.create({
-        file_ktp: req.file.filename,
-        id_datapenyandang: idpenyandang.id
+        file_dokter: req.file.filename,
+        id_datapenyandang: verified.id_user
       })
       res.json({
         status: 200,
