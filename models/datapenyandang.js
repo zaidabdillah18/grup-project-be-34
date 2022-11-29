@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
      this.belongsTo(models.User, {foreignKey: 'id_user'})
       this.hasOne(models.KontakPribadi, { foreignKey: 'id_datapenyandang'})
       this.hasOne(models.UploadBerkas, { foreignKey: 'id_datapenyandang'})
+      this.hasMany(models.pilihprogram,{foreignKey:'id_datapenyandang'})
+
       // this.belongsToMany(models.Program, { through: "pilihprograms",foreignKey: 'id_program'})
       // DataPenyandang.belongsTo(models.User,{
       //   as:'Users',
