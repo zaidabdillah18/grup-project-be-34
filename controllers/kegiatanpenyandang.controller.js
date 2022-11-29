@@ -13,6 +13,9 @@ async function kegiatanpenyandang(req,res){
           include:[{
               model: models.Program,
               include: [models.DataMitra]
+              },
+              {
+                model: models.DataPenyandang
               }
           ],
           where:{
