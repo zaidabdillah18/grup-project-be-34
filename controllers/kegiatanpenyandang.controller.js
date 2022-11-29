@@ -48,23 +48,12 @@ async function kegiatanaktifpenyandang(req,res){
             }
         ],
         where:{
-        id_datapenyandang:verified.id_user,
-        status:"diterima"
-      }
-        })
-        if(kegiatan){
-        res.status(200).json({
-          message: 'Success show data',
-          // program: homeprogrampenyandang,
-          kegiatan: kegiatan
-        })
-      }else{
-        res.status(400).json({
-          message: 'failed show data',
-          // program: homeprogrampenyandang,
-          // kegiatan: kegiatan
-        })
-      }
+          id_datapenyandang:verified.id_user,
+          status:"diterima"
+        }
+      })
+
+    
   }
 }
 module.exports = {
