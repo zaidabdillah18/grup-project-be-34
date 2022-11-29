@@ -118,7 +118,8 @@ async function getallpenyandang(req, res) {
         kota: req.body.kota,
         kecamatan: req.body.kecamatan,
         desa: req.body.desa,
-        kode_pos: req.body.verified.id_user
+        kode_pos: req.body.kode_pos,
+        id_datapenyandang: verified.id_user
       })
       res.json({
         status: 200,
