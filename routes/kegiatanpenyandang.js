@@ -5,5 +5,6 @@ const router = express.Router();
 const kegiatanpenyandangController = require('../controllers/kegiatanpenyandang.controller');
 
 router.get("/lihat", kegiatanpenyandangController.kegiatanpenyandang);
+router.get("/aktif", kegiatanpenyandangController.kegiatanaktifpenyandang);
 
 module.exports = router;
