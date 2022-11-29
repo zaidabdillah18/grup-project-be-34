@@ -29,7 +29,7 @@ router.get("/allpenyandang/:id", datapenyandangController.getallpenyandang)
 router.post("/datapribadi", datapenyandangController.createDatapribadi);
 router.get("/datapribadi/:id", datapenyandangController.getDataPribadi);
 router.put("/datapribadi/:id", datapenyandangController.editDataPribadi);
-router.post("/datapribadi/kontakpribadi/:id", datapenyandangController.createkontakpribadi);
+router.post("/datapribadi/kontakpribadi", datapenyandangController.createkontakpribadi);
 router.post("/datapribadi/kontakpribadi/upload_berkas/:id", upload.single('file_ktp') ,datapenyandangController.creatuploadberkas);
 
 //login
