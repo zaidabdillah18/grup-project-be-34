@@ -52,11 +52,19 @@ async function kegiatanaktifpenyandang(req,res){
         status:"diterima"
       }
         })
+        if(kegiatan != null){
         res.status(200).json({
           message: 'Success show data',
           // program: homeprogrampenyandang,
           kegiatan: kegiatan
         })
+      }else{
+        res.status(400).json({
+          message: 'failed show data',
+          // program: homeprogrampenyandang,
+          // kegiatan: kegiatan
+        })
+      }
   }
 }
 module.exports = {
