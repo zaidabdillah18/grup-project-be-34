@@ -19,7 +19,8 @@ async function kegiatanpenyandang(req,res){
               }
           ],
           where:{
-          id:id
+          id:id,
+          status:"daftar"
         }
           })
           res.status(200).json({
