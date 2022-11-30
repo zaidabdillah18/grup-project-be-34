@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
      this.belongsTo(models.User, {foreignKey: 'id_user'})
-      this.hasOne(models.KontakPribadi, { foreignKey: 'id_datapenyandang'})
-      this.hasOne(models.UploadBerkas, { foreignKey: 'id_datapenyandang'})
-      this.hasMany(models.pilihprogram,{foreignKey:'id_datapenyandang'})
+      this.hasOne(models.KontakPribadi, { foreignKey: 'id_user'})
+      this.hasOne(models.UploadBerkas, { foreignKey: 'id_user'})
+      this.hasMany(models.pilihprogram,{foreignKey:'id_user'})
 
       // this.belongsToMany(models.Program, { through: "pilihprograms",foreignKey: 'id_program'})
       // DataPenyandang.belongsTo(models.User,{
