@@ -30,9 +30,8 @@ router.post("/datapribadi", datapenyandangController.createDatapribadi);
 router.get("/datapribadi", datapenyandangController.getDataPribadi);
 router.put("/datapribadi", datapenyandangController.editDataPribadi);
 router.post("/datapribadi/kontakpribadi", datapenyandangController.createkontakpribadi);
+router.get("/datapribadi/kontakpribadi", datapenyandangController.getKontakPribadi);
+router.put("/datapribadi/kontakpribadi", datapenyandangController.editKontakPribadi);
 router.post("/datapribadi/kontakpribadi/upload_berkas", upload.single('file_dokter') ,datapenyandangController.creatuploadberkas);
-
-//login
-// router.post("/lihat", datapenyandangController.lihat)
 
 module.exports = router;
