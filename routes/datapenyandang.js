@@ -27,7 +27,7 @@ const fileStroge = multer.diskStorage({
   })
 router.get("/allpenyandang/:id", datapenyandangController.getallpenyandang)
 router.post("/datapribadi", datapenyandangController.createDatapribadi);
-router.get("/datapribadi/:id", datapenyandangController.getDataPribadi);
+router.get("/datapribadi", datapenyandangController.getDataPribadi);
 router.put("/datapribadi/:id", datapenyandangController.editDataPribadi);
 router.post("/datapribadi/kontakpribadi", datapenyandangController.createkontakpribadi);
 router.post("/datapribadi/kontakpribadi/upload_berkas", upload.single('file_dokter') ,datapenyandangController.creatuploadberkas);
