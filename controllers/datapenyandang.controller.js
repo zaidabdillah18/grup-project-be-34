@@ -10,26 +10,32 @@ async function getallpenyandang(req, res) {
   const verified = jwt.verify(token, 'secret')
   if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
     const id = verified.id_user
-   const penyandang = await models.DataPenyandang.findOne({
-    include: [
-            {
-              model: models.KontakPribadi,
-          
-            }
-          ],
-          include: [
-            {
-              model: models.UploadBerkas,
-          
-            }
-          ],
-        where:{id_user:id}
-    })
-    res.json({
-          status: 200,
-          message: 'Success create data',
-          data: penyandang
+   const penyandang = await models.DataPenyandang.findOne({where:{id_user:id}})
+    // console.log(penyandang.id)
+    if (penyandang) {
+      const ambil = await models.DataPenyandang.findAll({
+        include: [
+          {
+            model: models.KontakPribadi,
+        
+          }
+        ],
+        include: [
+          {
+            model: models.UploadBerkas,
+        
+          }
+        ],
+        where: {
+          id_user: penyandang.id
+        }
       })
+      res.json({
+        status: 200,
+        message: 'Success create data',
+        data: ambil
+      })
+    }
    }
 }
   async function createDatapribadi(req, res) {
