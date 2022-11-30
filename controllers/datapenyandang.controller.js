@@ -65,9 +65,9 @@ async function getallpenyandang(req, res) {
     const verified = jwt.verify(token, 'secret')
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
       const id = verified.id_user
-      const ambil = await models.DataPenyandang.findByPk(id)
+      // const ambil = await models.DataPenyandang.findByPk(id)
       // const nama = req.params.nama
-      // const penyandang = await models.DataPenyandang.findOne({ nama: nama })
+      const penyandang = await models.DataPenyandang.findOne({ id_user: id })
       // console.log(penyandang.id)
       // if (penyandang) {
       //   const ambil = await models.DataPenyandang.findAll({
@@ -77,7 +77,7 @@ async function getallpenyandang(req, res) {
       //   })
         res.status(200).json({
           message: 'Success show data',
-          data: ambil
+          data: penyandang
         })
       }
     // }
