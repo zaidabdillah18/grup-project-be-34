@@ -27,7 +27,7 @@ async function getallpenyandang(req, res) {
           }
         ],
         where: {
-          id_user: penyandang.id
+          id_user: penyandang.id_user
         }
       })
       res.json({
