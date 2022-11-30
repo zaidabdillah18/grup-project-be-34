@@ -159,10 +159,10 @@ async function getallpenyandang(req, res) {
     const token = await auth.split(' ')[1]
     const verified = jwt.verify(token, 'secret')
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
-      const nama = req.params.nama
-      const penyandang = await models.KontakPribadi.findOne({ nama: nama })
+      const id = verified.id_user
+      const penyandang = await models.KontakPribadi.findOne({ id_datapenyandang: id })
       if (penyandang) {
-        await models.KontakPribadi.update({ nama: req.body.nama }, {
+        await models.KontakPribadi.update({ no_hp: req.body.no_hp }, {
           where: {
             id: penyandang.id
           }
@@ -179,7 +179,7 @@ async function getallpenyandang(req, res) {
     const token = await auth.split(' ')[1]
     const verified = jwt.verify(token, 'secret')
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
-      const id = verified.id
+      const id = verified.id_user
       const penyandang = await models.KontakPribadi.findOne({ where: {id_user: id} })
       console.log(penyandang.id)
       if (penyandang) {
@@ -203,7 +203,7 @@ async function getallpenyandang(req, res) {
       const id = verified.id
       const penyandang = await models.KontakPribadi.findOne({ where: {id_user:id} })
       if (penyandang) {
-        await models.KontakPribadi.update({ no_hp: req.body.no_hp }, {
+        await models.KontakPribadi.update({ nama: req.body.nama }, {
           where: {
             id_user: penyandang.id
           }
