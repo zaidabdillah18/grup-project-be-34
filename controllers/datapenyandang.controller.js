@@ -122,7 +122,7 @@ async function getallpenyandang(req, res) {
         kecamatan: req.body.kecamatan,
         desa: req.body.desa,
         kode_pos: req.body.kode_pos,
-        id_datapenyandang: verified.id_user
+        id_user: verified.id_user
       })
       res.json({
         status: 200,
@@ -141,7 +141,7 @@ async function getallpenyandang(req, res) {
       if (penyandang) {
         const ambil = await models.KontakPribadi.findAll({
           where: {
-            id_datapenyandang: penyandang.id
+            id_user: penyandang.id
           }
         })
         res.status(200).json({
@@ -161,7 +161,7 @@ async function getallpenyandang(req, res) {
       if (penyandang) {
         await models.KontakPribadi.update({ no_hp: req.body.no_hp }, {
           where: {
-            id_datapenyandang: penyandang.id
+            id_user: penyandang.id
           }
         })
         res.status(200).json({
