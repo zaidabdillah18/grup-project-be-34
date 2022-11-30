@@ -137,7 +137,7 @@ async function getallpenyandang(req, res) {
     const verified = jwt.verify(token, 'secret')
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
       const id = verified.id_user
-      const penyandang = await models.KontakPribadi.findOne({ id_datapenyandang: id })
+      const penyandang = await models.KontakPribadi.findOne({ id_user: id })
       if (penyandang) {
         const ambil = await models.KontakPribadi.findAll({
           where: {
@@ -157,7 +157,7 @@ async function getallpenyandang(req, res) {
     const verified = jwt.verify(token, 'secret')
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
       const id = verified.id_user
-      const penyandang = await models.KontakPribadi.findOne({ id_datapenyandang: id })
+      const penyandang = await models.KontakPribadi.findOne({ id_user: id })
       if (penyandang) {
         await models.KontakPribadi.update({ no_hp: req.body.no_hp }, {
           where: {
