@@ -184,7 +184,7 @@ async function getallpenyandang(req, res) {
 
       const temp = await models.UploadBerkas.create({
         file_dokter: req.file.filename,
-        id_datapenyandang: verified.id_user
+        id_user: verified.id_user
       })
       res.json({
         status: 200,
