@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.DataPenyandang, { foreignKey: 'id_datapenyandang'})
+      this.belongsTo(models.DataPenyandang, { foreignKey: 'id_user'})
     }
   }
   UploadBerkas.init({
     file_ktp: DataTypes.STRING,
     file_dokter: DataTypes.STRING,
     file_tambahan: DataTypes.STRING,
-    id_datapenyandang: DataTypes.STRING
+    id_user: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'UploadBerkas',

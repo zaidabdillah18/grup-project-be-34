@@ -30,11 +30,11 @@ module.exports = {
       kode_pos: {
         type: Sequelize.STRING
       },
-      id_datapenyandang: {
+      id_user: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references:{
-          model:'DataPenyandangs',
+          model:'Users',
           key:'id'
         }
       },
