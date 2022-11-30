@@ -17,7 +17,13 @@ async function getallpenyandang(req, res) {
         include: [
           {
             model: models.KontakPribadi,
-            include: [models.UploadBerkas]
+        
+          }
+        ],
+        include: [
+          {
+            model: models.UploadBerkas,
+        
           }
         ],
         where: {
