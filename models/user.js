@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes) => {
 
       this.hasOne(models.DataMitra, { foreignKey: 'id_user'})
       this.hasOne(models.DataPenyandang, { foreignKey: 'id_user'})
+      this.hasOne(models.KontakPribadi, { foreignKey: 'id_user'})
+      this.hasOne(models.UploadBerkas, { foreignKey: 'id_user'})
     }
   }
   
