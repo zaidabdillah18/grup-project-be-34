@@ -12,7 +12,11 @@ const programmitraRouter = require('./routes/programmitra')
 const homepenyandangRouter = require('./routes/homepenyandang')
 const programpenyandangRouter = require('./routes/programpenyandang')
 const kegiatanpenyandangRouter = require('./routes/kegiatanpenyandang')
-app.use(cors())
+const corsConfig= {
+  credentials:true,
+}
+app.use(cors(corsConfig))
+app.options("*",cors(corsConfig))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
