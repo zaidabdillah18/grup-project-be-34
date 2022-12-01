@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
      this.belongsTo(models.User, {foreignKey: 'id_user'})
-      this.hasMany(models.pilihprogram,{foreignKey:'id_user'})
+      this.hasMany(models.pilihprogram,{foreignKey:'id_datapenyandang'})
 
       // this.belongsToMany(models.Program, { through: "pilihprograms",foreignKey: 'id_program'})
       // DataPenyandang.belongsTo(models.User,{
