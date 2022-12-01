@@ -25,10 +25,7 @@ async function homepenyandang(req,res){
         //   }) 
         const program = await models.Program.findAll({
           attributes: ['id','nama','deskripsi','gambar'],
-          include:[{
-            model: models.DataMitra,
-                    }
-                ]
+          include: [models.DataMitra]
         })
           res.status(200).json({
             message: 'Success show data',
