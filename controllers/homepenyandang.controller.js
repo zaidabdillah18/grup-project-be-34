@@ -8,29 +8,26 @@ async function homepenyandang(req,res){
     const verified = jwt.verify(token, 'secret') 
    
     if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
-        // const homekategoripenyandang = await models.KategoriProgram.findAll({
-        //     attributes: ['id','nama','deskripsi','gambar'],
-        //     include:[{
-        //         model: models.Program,
-        //         include: [models.DataMitra]
-        //         }
-        //     ]
-        //   })
-        //   const homeprogrampenyandang = await models.Program.findAll({
-        //      include:[{
-        //         model: models.DataMitra, as: 'DataMitras',
-        //         attributes: ['id','nama_mitra']
-        //     }],
-        //     attributes: ['id','nama','deskripsi','gambar','status_program']
-        //   }) 
-        const program = await models.Program.findAll({
-          attributes: ['id','nama','deskripsi','gambar'],
-          include: [models.DataMitra]
-        })
+        const homekategoripenyandang = await models.KategoriProgram.findAll({
+            attributes: ['id','nama','deskripsi','gambar'],
+            include:[{
+                model: models.Program,
+                include: [models.DataMitra]
+                }
+            ]
+          })
+          // const homeprogrampenyandang = await models.Program.findAll({
+          //    include:[{
+          //       model: models.DataMitra, as: 'DataMitras',
+          //       attributes: ['id','nama_mitra']
+          //   }],
+          //   attributes: ['id','nama','deskripsi','gambar','status_program']
+          // }) 
+   
           res.status(200).json({
             message: 'Success show data',
             // program: homeprogrampenyandang,
-            program: program
+            program: homekategoripenyandang
           })
     }else{
     res.status(500).json({
