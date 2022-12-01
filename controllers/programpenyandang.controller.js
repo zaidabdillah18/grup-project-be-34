@@ -1,7 +1,7 @@
 const models = require('../models');
 const jwt = require('jsonwebtoken');
 
-async function programkapenyandang(req,res){
+async function programpenyandang(req,res){
   const auth = await req.headers.authorization
   const token = await auth.split(' ')[1]
 
@@ -98,7 +98,7 @@ async function daftarprogram(req,res){
   }
 }
 module.exports = {
-programkategoripenyandang:programkapenyandang,
+  programpenyandang:programpenyandang,
 detailprogram:detailprogram,
 daftarprogram:daftarprogram
   }
