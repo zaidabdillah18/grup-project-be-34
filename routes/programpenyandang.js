@@ -5,8 +5,8 @@ const path = require('path')
 //ini menuju ke controller
 const programpenyandangController = require('../controllers/programpenyandang.controller');
 
-router.get("/lihat", programpenyandangController.programkategoripenyandang);
-router.get("/lihat/:id", programpenyandangController.detailprogramkategori);
+router.get("/lihat", programpenyandangController.programpenyandang);
+// router.get("/lihat/:id", programpenyandangController.detailprogramkategori);
 router.get("/lihat/detail/:id", programpenyandangController.detailprogram);
 router.post("/lihat/detail/daftar", programpenyandangController.daftarprogram);
 // router.get("/lihat/:id", programpenyandangController.detailprogrammitra);
