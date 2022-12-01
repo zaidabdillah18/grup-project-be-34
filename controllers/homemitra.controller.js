@@ -115,11 +115,9 @@ async function kirimprogram(req, res) {
   const token = await auth.split(' ')[1]
 
   const verified = jwt.verify(token, 'secret')
-  const id = req.params.id
-  // const idmitra = await models.DataMitra.findByPk(id);
-
   if (verified.posisi === "mitra") {
-    // const project = await models.KategoriProgram.findOne({ where: { nama: 'bansos' } });
+    const id = verified.id_user
+    const mitra = await models.DataMitra.findOne({ where: { id_user: id } });
     const tampung = await models.Program.create({
       nama: req.body.nama,
       deskripsi: req.body.deskripsi,
@@ -131,7 +129,7 @@ async function kirimprogram(req, res) {
       status_program: "dibuka",
       gambar: req.file.filename,
       id_kategori: req.body.id_kategori,
-      id_mitra: verified.id_user
+      id_mitra: mitra.id
     })
     res.status(200).json({
       message: 'Success create data',
