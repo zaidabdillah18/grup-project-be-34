@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.DataPenyandang, { foreignKey: 'id_user'})
+      this.belongsTo(models.Users, { foreignKey: 'id_user'})
     }
   }
   UploadBerkas.init({
