@@ -33,7 +33,7 @@ async function homepenyandang(req,res){
           res.status(200).json({
             message: 'Success show data',
             // program: homeprogrampenyandang,
-            kategri:kategori,
+            kategori:kategori,
             program: program
           })
     }else{
