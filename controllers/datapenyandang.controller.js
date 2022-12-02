@@ -13,27 +13,21 @@ async function getallpenyandang(req, res) {
    const penyandang = await models.DataPenyandang.findOne({where:{id_user:id}})
     console.log(penyandang.id)
     if (penyandang) {
-      const ambil = await models.DataPenyandang.findAll({
-        // include: [
-        //   {
-        //     model: models.KontakPribadi,
-        
-        //   }
-        // ],
-        // include: [
-        //   {
-        //     model: models.UploadBerkas,
-        
-        //   }
-        // ],
+      const kontakpribadi = await models.KontakPribadi.findAll({
         where: {
-          id_user: id
+          id_user: penyandang.id_user
+        }
+      })
+      const datapenyandang = await models.DataPenyandang.findAll({
+        where: {
+          id_user: penyandang.id_user
         }
       })
       res.json({
         status: 200,
         message: 'Success Show data',
-        data: ambil
+        DataPenyandang: datapenyandang,
+        KontakPribadi:kontakpribadi
       })
     }
    }
@@ -101,7 +95,7 @@ async function getallpenyandang(req, res) {
           }
         })
         res.status(200).json({
-          message: 'berhasil di update',
+          message: 'Success update data',
         })
       }
     }
@@ -165,7 +159,7 @@ async function getallpenyandang(req, res) {
           }
         })
         res.status(200).json({
-          message: 'berhasil di update'
+          message: 'Success update data'
         })
       }
     }
