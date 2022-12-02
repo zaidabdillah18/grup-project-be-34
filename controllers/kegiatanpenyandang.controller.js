@@ -21,7 +21,7 @@ async function kegiatanpenyandang(req,res){
               }
           ],
           where:{
-          id_datapenyandang:tampung.id_user,
+          id_datapenyandang:tampung.id,
           status:"daftar"
         }
           })
@@ -51,7 +51,7 @@ async function kegiatanaktifpenyandang(req,res){
             }
         ],
         where:{
-          id_datapenyandang:tampung.id_user,
+          id_datapenyandang:tampung.id,
           status:"diterima"
         }
       })
