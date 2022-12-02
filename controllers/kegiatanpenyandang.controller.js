@@ -14,10 +14,8 @@ async function kegiatanpenyandang(req,res){
               model: models.Program,
               include: [models.DataMitra]
               },
-              {
-                model: models.DataPenyandang
-              }
           ],
+          include: [models.DataMitra],
           where:{
           id_datapenyandang:verified.id_user,
           status:"daftar"
@@ -43,10 +41,8 @@ async function kegiatanaktifpenyandang(req,res){
             model: models.Program,
             include: [models.DataMitra]
             },
-            {
-              model: models.DataPenyandang
-            }
         ],
+        include: [models.DataMitra],
         where:{
           id_datapenyandang:verified.id_user,
           status:"diterima"
