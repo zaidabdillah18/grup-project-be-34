@@ -82,11 +82,11 @@ async function daftarprogram(req,res){
   const verified = jwt.verify(token, 'secret') 
  
   if (verified.posisi === "penyandang disabilitas no-lsm" || verified.posisi === "penyandang disabilitas lsm") {
-    // const id = req.params.id 
-    // const tampung =  await models.Program.findByPk(verified.id_user)
+    const id = req.params.id 
+    const tampung =  await models.Program.findByPk(id)
     // const temp =  await models.DataPenyandang.findByPk(verified.id_user)
     const daftarprogram = await models.pilihprogram.create({ 
-      id_program: req.body.id_program,
+      id_program: tampung.id,
       id_datapenyandang: verified.id_user,
       status: "daftar"
 
