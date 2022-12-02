@@ -27,12 +27,12 @@ async function getallpenyandang(req, res) {
         //   }
         // ],
         where: {
-          id_user: penyandang.id
+          id_user: id
         }
       })
       res.json({
         status: 200,
-        message: 'Success create data',
+        message: 'Success Show data',
         data: ambil
       })
     }
