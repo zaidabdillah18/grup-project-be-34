@@ -14,18 +14,18 @@ async function getallpenyandang(req, res) {
     console.log(penyandang.id)
     if (penyandang) {
       const ambil = await models.DataPenyandang.findAll({
-        include: [
-          {
-            model: models.KontakPribadi,
+        // include: [
+        //   {
+        //     model: models.KontakPribadi,
         
-          }
-        ],
-        include: [
-          {
-            model: models.UploadBerkas,
+        //   }
+        // ],
+        // include: [
+        //   {
+        //     model: models.UploadBerkas,
         
-          }
-        ],
+        //   }
+        // ],
         where: {
           id_user: penyandang.id
         }
